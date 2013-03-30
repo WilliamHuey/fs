@@ -144,8 +144,8 @@ exports.absolutePath = function(filePath) {
   return path.resolve(filePath);
 }
 
-exports.relativePath = function(filePath) {
-  return path.normalize(filePath);
+exports.relativePath = function(filePath, relativeTo) {
+  return path.relative(relativeTo || process.cwd(), filePath);
 }
 
 exports.exists = function(filePath) {
