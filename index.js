@@ -266,6 +266,7 @@ exports.entryNamesSync = function(directoryPath) {
 }
 
 exports.entryPathsSync = function(directoryPath) {
+  if (!exports.existsSync(directoryPath)) return [];
   return exports.entryNamesSync(directoryPath).map(function(filePath) {
     return path.join(directoryPath, filePath);
   });
